@@ -9,7 +9,7 @@ This project predicts student race/ethnicity based on math, reading, and writing
 - Deployed on Heroku
 
 ## URLs
-- Heroku App: https://ana680-midterm.herokuapp.com
+- Heroku App: https://ana680-midterm-56e78cb3d125.herokuapp.com/
 - GitHub Repo: https://github.com/your-username/ANA680-Midterm
 
 ## How It Works
