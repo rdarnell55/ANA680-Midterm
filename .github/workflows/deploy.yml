@@ -10,30 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v2
 
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: '3.9'
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Deploy to Heroku
+      - name: Deploy to Heroku via Git
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
           HEROKU_EMAIL: ${{ secrets.HEROKU_EMAIL }}
         run: |
-          echo "machine api.heroku.com" > ~/.netrc
-          echo "  login $HEROKU_EMAIL" >> ~/.netrc
-          echo "  password $HEROKU_API_KEY" >> ~/.netrc
-          echo "machine git.heroku.com" >> ~/.netrc
-          echo "  login $HEROKU_EMAIL" >> ~/.netrc
-          echo "  password $HEROKU_API_KEY" >> ~/.netrc
-          git remote add heroku https://git.heroku.com/$HEROKU_APP_NAME.git
-          git push heroku main
+          git config --global user.email "$HEROKU_EMAIL"
+          git config --global user.name "GitHub Actions"
+          echo "machine api.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" > ~/.netrc
+          echo "machine git.heroku.com login $HEROKU_EMAIL password $HEROKU_API_KEY" >> ~/.netrc
+          git remote add heroku https://git.heroku.com/${HEROKU_APP_NAME}.git
+          git push heroku main --force
