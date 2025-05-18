@@ -1,0 +1,26 @@
+<!-- ANA680-index.html -->
+<!-- app/templates/index.html -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Race/Ethnicity Predictor</title>
+</head>
+<body>
+    <h2>Enter Test Scores</h2>
+    <form action="/predict" method="post">
+        <label for="math_score">Math Score:</label><br>
+        <input type="number" name="math_score" required><br>
+
+        <label for="reading_score">Reading Score:</label><br>
+        <input type="number" name="reading_score" required><br>
+
+        <label for="writing_score">Writing Score:</label><br>
+        <input type="number" name="writing_score" required><br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h3>{{ prediction_text }}</h3>
+</body>
+</html>
