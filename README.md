@@ -1,4 +1,4 @@
-# ANA680 Midterm – Student Performance ML App
+# ANA680 Midterm â€“ Student Performance ML App
 
 This project predicts student race/ethnicity based on math, reading, and writing scores. It includes a Flask web app, trained machine learning model, and CI/CD deployment via GitHub Actions to Heroku.
 
@@ -10,7 +10,7 @@ This project predicts student race/ethnicity based on math, reading, and writing
 
 ## URLs
 - Heroku App: https://ana680-midterm-56e78cb3d125.herokuapp.com/
-- GitHub Repo: https://github.com/your-username/ANA680-Midterm
+- GitHub Repo: https://github.com/rdarnell55/ANA680-Midterm
 
 ## How It Works
 1. Enter math, reading, and writing scores.
